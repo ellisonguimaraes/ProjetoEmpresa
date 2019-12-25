@@ -1,0 +1,85 @@
+﻿@model BDApplication.ViewModel.SearchPedidoViewModel
+
+@{
+    ViewData["Title"] = "Pedidos";
+}
+
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col"><h2>Pedidos</h2></div>
+
+        <div class="col">
+            <nav class="navbar navbar-light">
+                <form class="form-inline" asp-action="Index">
+                    <input asp-for="Search" class="form-control mr-sm-2" type="search" placeholder="Número do Pedido" aria-label="Search">
+                    <span asp-validation-for="Search" class="text-danger"></span>
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </nav>
+        </div>
+
+        <div class="col">
+            <p style="text-align:right;">
+                <a class="btn btn-outline-success" asp-action="Create">Novo Pedido</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr class="row">
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                NumPed
+            </th>
+            <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                Cliente
+            </th>
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                Funcionário
+            </th>
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                Data Pedido
+            </th>
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                Data Entrega
+            </th>
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                Frete
+            </th>
+            <th class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Pedidos)
+        {
+            <tr class="row">
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    @Html.DisplayFor(modelItem => item.NumPed)
+                </td>
+                <td class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    @Html.DisplayFor(modelItem => item.Cli)
+                </td>
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    @Html.DisplayFor(modelItem => item.Fun)
+                </td>
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    @Html.DisplayFor(modelItem => item.DataPed)
+                </td>
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    @Html.DisplayFor(modelItem => item.DataEntrega)
+                </td>
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    R$ @Html.DisplayFor(modelItem => item.Frete)
+                </td>
+                <td class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+                    <a class="p-2 mb-2 bg-info text-white" asp-controller="Pedidos" asp-action="Edit" asp-route-id="@item.NumPed">Editar</a>
+                    <a class="p-2 mb-2 bg-warning text-dark" asp-controller="Pedidos" asp-action="Details" asp-route-id="@item.NumPed">Ver Mais</a>
+                    <a class="p-2 mb-2 bg-success text-white" asp-controller="Detalhesped" asp-action="Index" asp-route-NumPed="@item.NumPed">Ver Produtos</a>
+                    <a class="p-2 mb-2 bg-danger text-white" asp-controller="Pedidos" asp-action="Delete" asp-route-id="@item.NumPed">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

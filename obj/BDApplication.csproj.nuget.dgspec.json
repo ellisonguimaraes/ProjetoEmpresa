@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ellis\\Google Drive\\UESC\\6\\Banco de Dados 2\\Projeto EMPRESA ORM\\BDApplication\\BDApplication.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ellis\\Google Drive\\UESC\\6\\Banco de Dados 2\\Projeto EMPRESA ORM\\BDApplication\\BDApplication.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ellis\\Google Drive\\UESC\\6\\Banco de Dados 2\\Projeto EMPRESA ORM\\BDApplication\\BDApplication.csproj",
+        "projectName": "BDApplication",
+        "projectPath": "C:\\Users\\ellis\\Google Drive\\UESC\\6\\Banco de Dados 2\\Projeto EMPRESA ORM\\BDApplication\\BDApplication.csproj",
+        "packagesPath": "C:\\Users\\ellis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ellis\\Google Drive\\UESC\\6\\Banco de Dados 2\\Projeto EMPRESA ORM\\BDApplication\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ellis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

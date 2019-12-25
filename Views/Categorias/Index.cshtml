@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BDApplication.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Categorias";
+}
+
+
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col"><h2>Categorias</h2></div>
+        <div class="col">
+            <p style="text-align:right;">
+                <a class="btn btn-outline-success" asp-action="Create">Nova Categoria</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Descrição
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descr)
+            </td>
+            <td class="text-right">
+                <a class="p-2 mb-2 bg-info text-white" asp-controller="Categorias" asp-action="Edit" asp-route-id="@item.CodCategoria">Editar</a>
+                <a class="p-2 mb-2 bg-danger text-white" asp-controller="Categorias" asp-action="Delete" asp-route-id="@item.CodCategoria">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

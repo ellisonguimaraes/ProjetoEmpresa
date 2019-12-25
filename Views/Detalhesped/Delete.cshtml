@@ -1,0 +1,48 @@
+﻿@model BDApplication.ViewModel.DetalhesPedViewModel
+
+@{
+    ViewData["Title"] = "Deletar DetalhesPed";
+}
+
+<h3>Certeza que deseja excluir este DetalhePed?</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumPed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumPed)
+        </dd>
+        <dt class="col-sm-2">
+            Produto
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Prod) (ID: @Html.DisplayFor(model => model.CodProd))
+        </dd>
+        <dt class="col-sm-2">
+            Preço
+        </dt>
+        <dd class="col-sm-10">
+            R$ @Html.DisplayFor(model => model.Preco)
+        </dd>
+        <dt class="col-sm-2">
+            Quantidade
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Qtde)
+        </dd>
+        <dt class="col-sm-2">
+            Desconto
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Desconto)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" asp-route-NumPed="@Model.NumPed" asp-route-CodProd="@Model.CodProd">
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>

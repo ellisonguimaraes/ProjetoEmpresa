@@ -1,0 +1,95 @@
+﻿@model BDApplication.ViewModel.SearchProdutoViewModel
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+
+<div class="container-fluid p-4">
+    <div class="row">
+        <div class="col"><h2>Produtos</h2></div>
+
+        <div class="col">
+            <nav class="navbar navbar-light">
+                <form class="form-inline" asp-action="Index">
+                    <input asp-for="Search" class="form-control mr-sm-2" type="search" placeholder="Descrição" aria-label="Search">
+                    <span asp-validation-for="Search" class="text-danger"></span>
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </nav>
+        </div>
+
+        <div class="col">
+            <p style="text-align:right;">
+                <a class="btn btn-outline-success" asp-action="Create">Criar Produtos</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr class="row">
+            
+            <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                Descrição
+            </th>
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                Preço
+            </th>
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                Un.
+            </th>
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                Desc.
+            </th>
+            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                Fornecedor
+            </th>
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                Categoria
+            </th>
+            <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Produtos)
+        {
+            <tr class="row">
+                <td class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    @item.Descr
+                </td>
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    R$ @item.Preco
+                </td>
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    @item.Unidades
+                </td>
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    @if (item.Descontinuado == 0)
+                    {
+                        <p>Não</p>
+                    }
+                    else
+                    {
+                        <p>Sim</p>
+                    }
+
+                </td>
+                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    @item.For
+                </td>
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    @item.Categoria
+                </td>
+                <td class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
+                    <a class="p-2 mb-2 bg-info text-white" asp-controller="Produtos" asp-action="Edit" asp-route-id="@item.CodProd">Editar</a>
+                    <a class="p-2 mb-2 bg-warning text-dark" asp-controller="Produtos" asp-action="Details" asp-route-id="@item.CodProd">Ver Mais</a>
+                    <a class="p-2 mb-2 bg-danger text-white" asp-controller="Produtos" asp-action="Delete" asp-route-id="@item.CodProd">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

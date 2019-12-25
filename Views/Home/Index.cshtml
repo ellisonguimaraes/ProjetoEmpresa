@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Controle de Produtos - Página Inicial";
+}
+
+
+
+<div class="container text-center pt-4">
+    <div class="row">
+        <div class="col">
+            <h3>Quant.<br />Produtos</h3>
+            <p class="display-3">@ViewData["qtd_produtos"]</p>
+        </div>
+
+        <div class="col">
+            <h3>Quant.<br />Fornecedores</h3>
+            <p class="display-3">@ViewData["qtd_fornecedores"]</p>
+        </div>
+
+        <div class="col">
+            <h3>Quant.<br />Categorias</h3>
+            <p class="display-3">@ViewData["qtd_categorias"]</p>
+        </div>
+
+        <div class="col">
+            <h3>Quant.<br />Funcionários</h3>
+            <p class="display-3">@ViewData["qtd_funcionarios"]</p>
+        </div>
+    </div>
+    <div class="row pt-5">
+        
+        <div class="col">
+            <h3>Quant.<br />Clientes</h3>
+            <p class="display-3">@ViewData["qtd_clientes"]</p>
+        </div>
+
+        <div class="col">
+            <h3>Quant.<br />Pedidos</h3>
+            <p class="display-3">@ViewData["qtd_pedidos"]</p>
+        </div>
+
+        <div class="col">
+            <h3>Quant.<br />DetalhesPed</h3>
+            <p class="display-3">@ViewData["qtd_detalhesped"]</p>
+        </div>
+    </div>
+</div>

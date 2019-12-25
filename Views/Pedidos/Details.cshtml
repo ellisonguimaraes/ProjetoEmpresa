@@ -1,0 +1,59 @@
+﻿@model BDApplication.ViewModel.PedidoViewModel
+
+@{
+    ViewData["Title"] = "Detalhes do Pedido";
+}
+
+
+<h2>Detalhes pedido nº "@Model.NumPed"</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumPed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumPed)
+        </dd>
+        <dt class = "col-sm-2">
+            Cliente
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cli) (ID: @Html.DisplayFor(model => model.CodCli))
+        </dd>
+        <dt class = "col-sm-2">
+            Funcionário
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fun) (ID: @Html.DisplayFor(model => model.CodFun))
+        </dd>
+        <dt class = "col-sm-2">
+            Data Pedido
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataPed)
+        </dd>
+        <dt class = "col-sm-2">
+            Data Entrega
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataEntrega)
+        </dd>
+        <dt class = "col-sm-2">
+            Valor do frete
+        </dt>
+        <dd class = "col-sm-10">
+            R$ @Html.DisplayFor(model => model.Frete)
+        </dd>
+    </dl>
+</div>
+
+<div class="text-center p-3">
+    <a asp-controller="Detalhesped" asp-action="Index" asp-route-NumPed="@Model.NumPed" class="btn btn-success">VER TODOS OS PRODUTOS DESTE PEDIDO</a>
+</div>
+
+<div>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.NumPed }) |
+    <a asp-action="Index">Voltar</a>
+</div>

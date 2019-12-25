@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BDApplication.Models.Fornecedor>
+
+@{
+    ViewData["Title"] = "Fornecedores";
+}
+
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col"><h2>Fornecedores</h2></div>
+        <div class="col">
+            <p style="text-align:right;">
+                <a class="btn btn-outline-success" asp-action="Create">Novo Fornecedor</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pais)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody >
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contato)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pais)
+            </td>
+            <td class="text-center">
+                <a class="p-2 mb-2 bg-info text-white" asp-controller="Fornecedores" asp-action="Edit" asp-route-id="@item.CodFor">Editar</a>
+                <a class="p-2 mb-2 bg-warning text-dark" asp-controller="Fornecedores" asp-action="Details" asp-route-id="@item.CodFor">Ver Mais</a>
+                <a class="p-2 mb-2 bg-danger text-white" asp-controller="Fornecedores" asp-action="Delete" asp-route-id="@item.CodFor">Excluir</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<BDApplication.Models.Funcionario>
+
+@{
+    ViewData["Title"] = "Funcionários";
+}
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col"><h2>Funcionários</h2></div>
+        <div class="col">
+            <p style="text-align:right;">
+                <a class="btn btn-outline-success" asp-action="Create">Novo Funcionário</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr class="row">
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                @Html.DisplayNameFor(model => model.Cargo)
+            </th>
+            <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                @Html.DisplayNameFor(model => model.Fone)
+            </th>
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                @Html.DisplayNameFor(model => model.Salario)
+            </th>
+            <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+            <tr class="row">
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    @Html.DisplayFor(modelItem => item.Cargo)
+                </td>
+                <td class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    @Html.DisplayFor(modelItem => item.Endereco) ( @Html.DisplayFor(modelItem => item.Cidade) - @Html.DisplayFor(modelItem => item.Pais) )
+                </td>
+                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    @Html.DisplayFor(modelItem => item.Fone)
+                </td>
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    R$ @Html.DisplayFor(modelItem => item.Salario)
+                </td>
+                <td class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
+                    <a class="p-2 mb-2 bg-info text-white" asp-controller="Funcionarios" asp-action="Edit" asp-route-id="@item.CodFun">Editar</a>
+                    <a class="p-2 mb-2 bg-warning text-dark" asp-controller="Funcionarios" asp-action="Details" asp-route-id="@item.CodFun">Ver Mais</a>
+                    <a class="p-2 mb-2 bg-danger text-white" asp-controller="Funcionarios" asp-action="Delete" asp-route-id="@item.CodFun">Excluir</a>
+                </td>
+            </tr>
+    }
+    </tbody>
+</table>

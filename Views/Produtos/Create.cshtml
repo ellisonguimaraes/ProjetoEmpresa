@@ -1,0 +1,72 @@
+﻿@model BDApplication.ViewModel.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Criar Novo Produto";
+}
+
+
+<h2>Novo Produto</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Descr" class="control-label">Descrição</label>
+                <input asp-for="Descr" class="form-control" />
+                <span asp-validation-for="Descr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preco" class="control-label">Preço</label>
+                <input asp-for="Preco" class="form-control" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Unidades" class="control-label">Quantidade</label>
+                <input asp-for="Unidades" class="form-control" />
+                <span asp-validation-for="Unidades" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Descontinuado" class="control-label">Descontinuado</label>
+                <select asp-for="Descontinuado" class="form-control">
+                    <option value="0">Não</option>
+                    <option value="1">Sim</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CodFor" class="control-label">Fornecedor</label>
+                <select asp-for="CodFor" class="form-control">
+                    @foreach (var item in Model.FornecedoresList)
+                    {
+                        <option value="@item.CodFor">@item.Empresa</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CodCategoria" class="control-label">Categoria</label>
+                <select asp-for="CodCategoria" class="form-control">
+                    @foreach (var item in Model.CategoriasList)
+                    {
+                        <option value="@item.CodCategoria">@item.Descr</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
